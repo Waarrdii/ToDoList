@@ -107,12 +107,12 @@
                                     <div class="d-flex">
                                         <div class="radio px-2">
                                             <label>
-                                                <input type="radio" value="1" name="is_done"> Selesai
+                                                <input type="radio" value="1" name="is_done" {{ $item->is_done == '1' ? 'checked': '' }}> Selesai
                                             </label>
                                         </div>
                                         <div class="radio">
                                             <label>
-                                                <input type="radio" value="0" name="is_done"> Belum
+                                                <input type="radio" value="0" name="is_done" {{ $item->is_done == '0' ? 'checked': '' }}> Belum
                                             </label>
                                         </div>
                                     </div>

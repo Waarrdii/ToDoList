@@ -13,7 +13,7 @@ class todoController extends Controller
     public function index()
     {
         $data = Todo::orderBy('task','asc')->get();
-        return view('app', ['data' =>$data]);
+        return view('app', compact('data'));
     }
 
     /**
