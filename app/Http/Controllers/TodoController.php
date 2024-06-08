@@ -12,8 +12,8 @@ class todoController extends Controller
      */
     public function index()
     {
-        $Data = Todo::orderBy('task','asc')->get();
-        return view('app', ['data' =>$Data]);
+        $data = Todo::orderBy('task','asc')->get();
+        return view('app', ['data' =>$data]);
     }
 
     /**
@@ -37,10 +37,10 @@ class todoController extends Controller
             ]
         );
 
-        $Data = [
+        $data = [
             'task' => $request->input('task')
         ];
-        Todo::create($Data);
+        Todo::create($data);
         return redirect()->route('todoIndex')->with('success', 'data berhasil disimpan');
     }
 

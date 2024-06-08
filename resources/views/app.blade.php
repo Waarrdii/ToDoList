@@ -82,24 +82,25 @@
                         </form>
                         
                         <ul class="list-group mb-4" id="todo-list">
+                            @foreach ($data as $item)
                             <!-- 04. Display Data -->
                             <li class="list-group-item d-flex justify-content-between align-items-center">
-                                <span class="task-text">Coding</span>
+                                <span class="task-text">{{ $item->task }}</span>
                                 <input type="text" class="form-control edit-input" style="display: none;"
-                                    value="Coding">
+                                    value="{{ $item->task }}">
                                 <div class="btn-group">
                                     <button class="btn btn-danger btn-sm delete-btn">✕</button>
                                     <button class="btn btn-primary btn-sm edit-btn" data-bs-toggle="collapse"
-                                        data-bs-target="#collapse-1" aria-expanded="false">✎</button>
+                                        data-bs-target="#collapse-{{ $loop->index }}" aria-expanded="false">✎</button>
                                 </div>
                             </li>
                             <!-- 05. Update Data -->
-                            <li class="list-group-item collapse" id="collapse-1">
+                            <li class="list-group-item collapse" id="collapse-{{ $loop->index }}">
                                 <form action="" method="POST">
                                     <div>
                                         <div class="input-group mb-3">
                                             <input type="text" class="form-control" name="task"
-                                                value="Coding">
+                                                value="{{ $item->task }}">
                                             <button class="btn btn-outline-primary" type="button">Update</button>
                                         </div>
                                     </div>
@@ -117,6 +118,7 @@
                                     </div>
                                 </form>
                             </li>
+                            @endforeach
                         </ul>
                         
                         
